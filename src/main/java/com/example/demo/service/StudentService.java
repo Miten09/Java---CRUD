@@ -26,16 +26,22 @@ public class StudentService {
         return repository.findById(id).orElse(null);
     }
 
-    public String deleteStudent(int id) {
-        repository.deleteById(id);
-        return "Deleted " + id;
+    public Student updateStudent(Student student) {
+
+        Student existingStudent =
+                repository.findById(student.getId()).orElse(null);
+
+        if (existingStudent == null) {
+            return null;
+        }
+
+        existingStudent.setName(student.getName());
+        existingStudent.setEmail(student.getEmail());
+
+        return repository.save(existingStudent);
     }
 
-    public Student updateStudent(Student student) {
-        Student existing = repository.findById(student.getId()).orElse(null);
-        if(existing == null) return null;
-        existing.setName(student.getName());
-        existing.setEmail(student.getEmail());
-        return repository.save(existing);
+    public void deleteStudent(int id) {
+        repository.deleteById(id);
     }
 }

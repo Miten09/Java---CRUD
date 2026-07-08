@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface StudentRepository extends JpaRepository<Student, Integer> {
-    // Magic! save(), findAll(), findById() sab iske andar hai.
+    // Magic! save(), findAll(), findById() all queries are here
 
 }

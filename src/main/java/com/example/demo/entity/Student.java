@@ -2,8 +2,8 @@ package com.example.demo.entity;
 
 import jakarta.persistence.*;
 
-@Entity // Table banayega
-@Table(name = "students_table")
+@Entity // Make table columns
+@Table(name = "students_table")  // Make table
 public class Student {
 
     @Id // Primary Key
@@ -13,7 +13,7 @@ public class Student {
     private String name;
     private String email;
 
-    // Default Constructor (JSON conversion ke liye zaroori hai)
+    // Default Constructor (For JSON conversion)
     public Student() {}
  
     public Student(Integer id, String name, String email) {
